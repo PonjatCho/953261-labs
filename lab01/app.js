@@ -21,7 +21,16 @@ const server = http.createServer((req, res) => {
     res.end("<h1>Hello, 953261!</h1><p>My name is Ponjat Chotibal (student ID 692115031)</p>");
     return;
   }
-
+  if (req.method === "GET" && req.url === "/api/me"){
+    const me = {
+      name : "Ponjat Chotibal",
+      studentID : "692115031",
+      favoriteLanguage : "JavaScript",
+    };
+    res.writeHead(200, { "Content-Type": "application/json"});
+    res.end(JSON.stringify(me));
+    return;
+  }
   // TODO: add GET /api/me here
  
   // TODO: replace this with a proper 404 response
